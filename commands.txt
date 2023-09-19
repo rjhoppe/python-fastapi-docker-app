@@ -1,0 +1,6 @@
+# Docker Compose CMDs
+docker-compose build
+docker-compose up
+
+# Initialize alembic
+alembic init alembic

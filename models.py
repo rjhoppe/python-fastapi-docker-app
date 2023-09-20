@@ -9,9 +9,9 @@ class Book(Base):
   __tablename__ = "book"
   id = Column(Integer, primary_key=True, index=True)
   title = Column(String)
-  time_create = Column(DateTime(timezone=True), server_default=func.now())
+  time_created = Column(DateTime(timezone=True), server_default=func.now())
   time_updated = Column(DateTime(timezone=True), onupdate=func.now())
-  author_id = Column(Integer, ForeignKey("author_id"))
+  author_id = Column(Integer, ForeignKey("author.id"))
 
   author = relationship("Author")
 
@@ -20,5 +20,5 @@ class Author(Base):
   id = Column(Integer, primary_key=True)
   name = Column(String)
   age = Column(Integer)
-  time_create = Column(DateTime(timezone=True), server_default=func.now())
+  time_created = Column(DateTime(timezone=True), server_default=func.now())
   time_updated = Column(DateTime(timezone=True), onupdate=func.now())

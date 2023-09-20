@@ -1,6 +1,17 @@
 # Docker Compose CMDs
+// Starts a build 
 docker-compose build
+// Refreshes active containers
 docker-compose up
+// Start a new alembic migration via Docker
+docker-compose run app alembic revision --autogenerate -m "New Migration"
+docker-compose run app alembic upgrade head
 
 # Initialize alembic
 alembic init alembic
+
+# Run these db migration commands in the app container terminal (could also create a shell script to run on container creation)
+// Prepares the schema migration
+alembic revision --autogenerate -m "New Migration"
+// Commits the schema migration to the db container
+alembic upgrade head
